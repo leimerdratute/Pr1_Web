@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="uk">
+
+<head>
+    <meta charset="utf-8">
+    <title>Перша сторінка</title>
+</head>
+
+<body>
+    <main id="page1">
+        <h1>Перша веб-сторінка</h1>
+        <p>Це перша сторінка. Натисніть посилання, щоб відкрити другу сторінку.</p>
+        <a href="#page2" id="toPage2">Відкрити другу сторінку</a>
+    </main>
+
+    <main id="page2" hidden>
+        <h1>Друга веб-сторінка</h1>
+        <p>Це друга сторінка.</p>
+        <a href="#page1" id="toPage1">Повернутися на першу сторінку</a>
+    </main>
+
+    <script>
+        const page1 = document.getElementById('page1');
+        const page2 = document.getElementById('page2');
+
+        document.getElementById('toPage2').addEventListener('click', (event) => {
+            event.preventDefault();
+            page1.hidden = true;
+            page2.hidden = false;
+        });
+
+        document.getElementById('toPage1').addEventListener('click', (event) => {
+            event.preventDefault();
+            page2.hidden = true;
+            page1.hidden = false;
+        });
+    </script>
+    
+</body>
+
+</html>
